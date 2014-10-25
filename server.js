@@ -13,8 +13,6 @@ var server = require('http').createServer(app)
 var io = require('socket.io').listen(server);
 var device = require('express-device');
 
-var url = require('url');
-
 var runningPortNumber = process.env.PORT;
 app.engine('html', require('ejs').renderFile);
 
