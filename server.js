@@ -75,7 +75,6 @@ io.set('authorization', function(handshakeData, cb) {
 });
 
 io.sockets.on('connection', function(socket) {
-    console.log(socket.handshake.query.foo)
     if (socket.handshake.query.discussionRoomId) {
         sendStream(socket,socket.handshake.query.discussionRoomId);
     }
