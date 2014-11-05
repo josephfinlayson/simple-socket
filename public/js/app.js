@@ -16,21 +16,21 @@ $(function() {
 
 
     //two sockets to the same connection doesn;t work problels
-    var socketMethod1S1 = io.connect('http://127.0.0.1:1337', {
+    var socketMethod1S1 = io.connect('/', {
         query: "discussionRoomId=stream1"
     })
 
-    var socketMethod1S2 = io.connect('http://127.0.0.1:1337/', {
+    var socketMethod1S2 = io.connect('/', {
         query: "discussionRoomId=stream2"
     })
 
 
     // //this is one way of doing it, using subscribe calls without joining rooms
-    var socketMethod2 = io.connect('http://127.0.0.1:1337/discussionRooms');
+    var socketMethod2 = io.connect('/discussionRooms');
 
     // //the way I would do it - you only need one socket (performance improvements),
     // // and it's really flexible, and you get to use the rooms feature
-    var socketMethod3 = io.connect('http://127.0.0.1:1337/roomDiscussion');
+    var socketMethod3 = io.connect('/roomDiscussion');
 
     // Method 1 -- not functioning, cannot open 2 connections to the same socket
     socketMethod1S1.on('connect', function(data) {
